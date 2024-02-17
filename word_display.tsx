@@ -4,25 +4,48 @@ import React, { useEffect, useState } from "react";
 export default function WordDetails({ data }: { data: any }) {
   console.log(data);
   return (
-    <View>
-      <Text>{data[0].word}</Text>
+    <View style={styles.container}>
+      <Text style={styles.word}>{capitalizeFirstLetter(data[0].word)}</Text>
       {data[0].meanings.map(
         (def: { definitions: any[]; partOfSpeech: any }, index: number) => (
           <View key={index}>
-            <Text>
-              ((({index + 1}))) Part of Speech: {def.partOfSpeech}
+            <Text style={styles.part_of_speech}>
+              Part of Speech: {def.partOfSpeech}
             </Text>
-            {/* <Text>{def.partOfSpeech}</Text> */}
             {def.definitions.map((defs: { definition: any }, i: number) => (
               <>
-                <Text>{defs.definition}</Text>
-                <Text>---- Here is definition {i + 1}! ----</Text>
+                <Text style={styles.definition}>
+                  {i + 1} - {defs.definition}
+                </Text>
               </>
             ))}
           </View>
         )
       )}
-      {/* <Text>{data[0].meanings[0].definitions[0].definition}</Text> */}
     </View>
   );
 }
+
+function capitalizeFirstLetter(word: { charAt: any; slice: any }) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+const styles = StyleSheet.create({
+  word: {
+    fontSize: 40,
+    paddingBottom: 12,
+  },
+  part_of_speech: {
+    fontSize: 28,
+    paddingBottom: 8,
+  },
+  definition: {
+    fontSize: 16,
+    paddingTop: 8,
+    paddingBottom: 8,
+  },
+  container: {
+    margin: 8,
+    marginBottom: 20,
+  },
+});

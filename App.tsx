@@ -13,7 +13,7 @@ export default function App() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.dictionaryapi.dev/api/v2/entries/en/read"
+          "https://api.dictionaryapi.dev/api/v2/entries/en/innocuous"
         );
         const data = await response.json();
         setWordData(data);
@@ -29,7 +29,7 @@ export default function App() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text>Learn New Words!</Text>
+        <Text style={styles.learn}>Learn New Words!</Text>
         <Input />
         <Button />
         {wordData && <WordDetails data={wordData} />}
@@ -40,7 +40,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  learn: {
+    fontSize: 40,
+  },
   container: {
+    marginTop: "50%",
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
