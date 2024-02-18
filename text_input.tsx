@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TextInput, Text } from "react-native";
 
 export default function Input() {
+  const [text, setText] = useState("");
+
+  const handleTextChange = (input: React.SetStateAction<string>) => {
+    setText(input);
+  };
+
+  const handleTextSubmit = () => {
+    console.log(text);
+  };
+
   return (
-    <TextInput style={styles.input} placeholder="Type a word here"></TextInput>
+    <TextInput
+      value={text}
+      style={styles.input}
+      placeholder="Type a word here"
+      onChangeText={handleTextChange}
+      onSubmitEditing={handleTextSubmit}
+    ></TextInput>
   );
 }
 

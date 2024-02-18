@@ -8,12 +8,15 @@ import WordDetails from "./word_display";
 export default function App() {
   const [wordData, setWordData] = useState(null);
 
+  // Need to create a function that is called when text is submitted that calls the useEffect() function to display the word
+  const word = "super"; // This word should be set from the inputted text
+
   // Gets word data from API
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://api.dictionaryapi.dev/api/v2/entries/en/innocuous"
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
         );
         const data = await response.json();
         setWordData(data);

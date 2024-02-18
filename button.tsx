@@ -8,7 +8,7 @@ export default function button() {
         console.log("Pressed!");
       }}
     >
-      <Text style={styles.blue}>What the hell does it mean?</Text>
+      <Text style={styles.blue}>What does it mean?</Text>
     </Pressable>
   );
 }
