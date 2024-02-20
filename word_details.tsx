@@ -13,11 +13,9 @@ export default function WordDetails({ data }: { data: any }) {
               Part of Speech: {def.partOfSpeech}
             </Text>
             {def.definitions.map((defs: { definition: any }, i: number) => (
-              <>
-                <Text style={styles.definition}>
-                  {i + 1} - {defs.definition}
-                </Text>
-              </>
+              <Text key={`${index}_${i}`} style={styles.definition}>
+                {i + 1} - {defs.definition}
+              </Text>
             ))}
           </View>
         )

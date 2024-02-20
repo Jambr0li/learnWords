@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, Text } from "react-native";
 
-export default function Input() {
+export default function Input({ onSubmit }: { onSubmit: any }) {
   const [text, setText] = useState("");
 
   const handleTextChange = (input: React.SetStateAction<string>) => {
@@ -9,6 +9,7 @@ export default function Input() {
   };
 
   const handleTextSubmit = () => {
+    onSubmit(text);
     console.log(text);
   };
 
