@@ -5,18 +5,25 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import HomeScreen from "../screens/homeScreen";
 import LoginScreen from "../screens/loginScreen";
+import LoggedOutStack from "../stacks/LoggedInStack";
+import LoggedInStack from "../stacks/LoggedInStack";
 
 const Stack = createStackNavigator();
 
-const AppNavigator = () => {
+const AppNavigator = (/*{ user }*/) => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        // initialRouteName={user ? "LoggedInStack" : "LoggedOutStack"}
+        initialRouteName="LoggedInStack"
         screenOptions={{ gestureEnabled: true, gestureDirection: "horizontal" }}
       >
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        {/* {user ? ( */}
+        {/* <Stack.Screen name="LoggedInStack" component={LoggedInStack} /> */}
+        {/* ) : ( */}
+        {/* <Stack.Screen name="LoggedOutStack" component={LoggedOutStack} /> */}
+        {/* )} */}
+        <Stack.Screen name="LoggedInStack" component={LoggedInStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

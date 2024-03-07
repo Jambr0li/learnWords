@@ -11,13 +11,13 @@ type RootStackParamList = {
 type NavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
 const LoginButton = () => {
-  const navigation: NavigationProp = useNavigation();
-  const goToHomePage = () => {
-    navigation.navigate("Home");
-  };
+  // const navigation: NavigationProp = useNavigation();
+  // const goToHomePage = () => {
+  //   navigation.navigate("Home");
+  // };
   return (
     <View>
-      <TouchableOpacity style={styles.button} onPress={goToHomePage}>
+      <TouchableOpacity style={styles.button} /*onPress={goToHomePage}*/>
         <Text>Log in</Text>
       </TouchableOpacity>
     </View>
