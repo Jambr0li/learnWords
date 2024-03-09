@@ -7,8 +7,6 @@ import React, { useState } from "react";
 const HomeScreen = () => {
   const [wordData, setWordData] = useState(null);
 
-  // Gets word data from API
-
   const handleWordSubmit = async (word: { word: string }) => {
     console.log(`Here is what we are sending to the API: ${word}`);
     try {

@@ -2,7 +2,13 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 
 export default function WordDetails({ data }: { data: any }) {
-  console.log(data);
+  if (data.hasOwnProperty("message")) {
+    return (
+      <View>
+        <Text style={styles.part_of_speech}>Word Not Recognized.</Text>
+      </View>
+    );
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.word}>{capitalizeFirstLetter(data[0].word)}</Text>
